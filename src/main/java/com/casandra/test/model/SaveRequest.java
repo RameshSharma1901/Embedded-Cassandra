@@ -17,15 +17,10 @@ import lombok.Setter;
 @Setter
 public class SaveRequest implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-
-	@JsonProperty("orderId")
 	private String orderId;
-	
-	@JsonProperty("amount")
-	private Float amount;
-	
-	@JsonProperty("discount")
-	private Float discount;
+
+	private String orderDetails;
+
+	private String transactionFlowType;
 
 }

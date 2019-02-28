@@ -12,7 +12,7 @@ import com.casandra.test.domain.cassandra.Order;
 @Repository
 public interface OrderRepository extends CassandraRepository<Order> {
 
-	@Query("select * from ORDER_DATA where orderID = ?0")
+	@Query("select * from ORDERS where orderID = ?0")
 	public List<Order> findByOrderId(String orderID);
 
 }

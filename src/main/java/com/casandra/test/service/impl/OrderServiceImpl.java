@@ -17,8 +17,8 @@ public class OrderServiceImpl implements OrderService {
 	public boolean save(SaveRequest request) {
 		Order order = new Order();
 		order.setOrderID(request.getOrderId());
-		order.setDiscount(request.getDiscount());
-		order.setAmount(request.getAmount());
+		order.setOrderDetails(request.getOrderDetails());
+		order.setTransactionFlowType(request.getTransactionFlowType());
 
 		orderRepository.save(order);
 

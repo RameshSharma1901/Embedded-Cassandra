@@ -10,19 +10,17 @@ import org.springframework.data.cassandra.mapping.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-@Table("ORDER_DATA")
+@Table("ORDERS")
 @Getter
 @Setter
 public class Order implements Serializable {
-
-	private static final long serialVersionUID = 2404160767202085990L;
 
 	@Id
 	@PrimaryKeyColumn(name = "orderID", type = PrimaryKeyType.PARTITIONED, ordinal = 0)
 	private String orderID;
 
-	private Float amount;
+	private String orderDetails;
 
-	private Float discount;
+	private String transactionFlowType;
 
 }

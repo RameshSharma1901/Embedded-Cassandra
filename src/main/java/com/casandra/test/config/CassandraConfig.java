@@ -19,7 +19,7 @@ import org.springframework.data.cassandra.mapping.SimpleUserTypeResolver;
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 
 @Configuration
-@PropertySource(value = { "application.properties" })
+@PropertySource(value = { "config.properties" })
 @EnableCassandraRepositories(basePackages = { "com.casandra.test.repository" })
 @EntityScan("com.casandra.test.domain.cassandra")
 public class CassandraConfig {
@@ -37,13 +37,14 @@ public class CassandraConfig {
 	private String contactpoints;
 
 	@Value("${port}")
-	private String port;
+	private int port;
 
 	@Bean
 	public CassandraClusterFactoryBean cluster() {
 
 		CassandraClusterFactoryBean cluster = new CassandraClusterFactoryBean();
 		cluster.setContactPoints(contactpoints);
+		cluster.setPort(port);
 //		if (userName != null && userName.trim().length() > 0) {
 //			cluster.setUsername(userName);
 //			cluster.setPassword(password);
